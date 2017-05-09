@@ -3,6 +3,9 @@ package sangpire.findup;
 import java.io.File;
 import java.util.Collections;
 
+/**
+ * 주석 추가.
+ */
 public class Worker {
 
     File rootDir;

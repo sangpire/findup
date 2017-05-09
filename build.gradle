@@ -11,6 +11,7 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
+compileJava.options.encoding = 'UTF-8'
 mainClassName = "sangpire.findup.Main"
 
 jar {
