@@ -4,21 +4,15 @@ import java.io.File;
 import java.util.Collections;
 
 /**
- * 주석 추가.
+ * 파일을 모조리 찾아내는 폴더 여행자.
  */
-public class Worker {
+public class Travler {
 
-    File rootDir;
-
-    public Worker(File rootDir) {
-        this.rootDir = rootDir;
+    public void visit(File dir) {
+        visit(0, dir);
     }
 
-    public void cleanUp() {
-        lookupDir(0, this.rootDir);
-    }
-
-    void lookupDir(Integer depth, File dir) {
+    void visit(Integer depth, File dir) {
         if (depth > 1) {
             return;
         }
@@ -34,7 +28,7 @@ public class Worker {
             String fileMetaInfos =String.format("%s%s - %s\n", margin, file.isDirectory() ? "d" : "-" ,  file.getAbsolutePath());
             System.out.print(fileMetaInfos);
             if (file.exists() && file.isDirectory()) {
-                lookupDir(depth + 1, file);
+                visit(depth + 1, file);
             }
         }
     }
